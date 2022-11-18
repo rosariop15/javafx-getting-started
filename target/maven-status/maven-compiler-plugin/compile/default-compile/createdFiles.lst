@@ -1,11 +1,1 @@
-org\openjfx\ChartUpdater.class
-org\openjfx\MyGrid.class
-org\openjfx\PrimaryController.class
-org\openjfx\MyServer.class
-org\openjfx\MyClient.class
-org\openjfx\ClientData.class
-org\openjfx\MyChart.class
-org\openjfx\MyHeader.class
-org\openjfx\SecondaryController.class
-org\openjfx\ChartUpdater$1.class
-org\openjfx\App.class
+org\openjfx\MyGrid$1.class

@@ -11,7 +11,5 @@
 <?import javafx.geometry.Insets?>
 <fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml">
     <Label text="Headerrrrr"/>
-    <padding>
-        <Insets left="220.0" />
-    </padding>
+    <TextField fx:id="AddButton" text="blablabla"/>
 </fx:root>

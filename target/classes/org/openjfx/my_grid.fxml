@@ -7,8 +7,17 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.Text?>
+<<<<<<< HEAD
 
 <?import javafx.geometry.Insets?>
 <fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml">
    <GridPane fx:id="myGridPane" />
+=======
+<?import javafx.geometry.Insets?>
+
+<fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml">
+   <GridPane fx:id="myGridPane" />
+   <TextField fx:id="ipAddress" text="enter the opponent's IP address"/>
+   <Button fx:id="btnIP"/>
+>>>>>>> origin/main
 </fx:root>
