@@ -1,8 +1,11 @@
 package org.openjfx;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -15,8 +18,15 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MyGrid extends VBox {
-@FXML
-GridPane myGridPane =new GridPane();
+    @FXML
+    GridPane myGridPane = new GridPane();
+
+    @FXML
+    TextField ipAddress = new TextField();
+
+    @FXML
+    Button btnIP = new Button();
+
     public MyGrid() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("my_grid.fxml"));
         fxmlLoader.setRoot(this);
@@ -27,7 +37,15 @@ GridPane myGridPane =new GridPane();
             throw new RuntimeException(exception);
         }
 
+        btnIP.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println(ipAddress.getText());
+                int IPaddress = Integer.parseInt(ipAddress.getText());
+            }
+        });
     }
+
     @FXML
     public void initialize() throws Exception {
 
@@ -41,7 +59,6 @@ GridPane myGridPane =new GridPane();
         Button button8 = new Button("Button 8");
         Button button9 = new Button("Button 9");
 
-
         myGridPane.add(button1, 0, 0, 1, 1);
         myGridPane.add(button2, 1, 0, 1, 1);
         myGridPane.add(button3, 2, 0, 1, 1);
@@ -53,6 +70,7 @@ GridPane myGridPane =new GridPane();
         myGridPane.add(button9, 2, 2, 1, 1);
 
     }
+
 
 }
 
