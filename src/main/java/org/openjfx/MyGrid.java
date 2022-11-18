@@ -40,6 +40,9 @@ GridPane myGridPane =new GridPane();
         Button button7 = new Button("Button 7");
         Button button8 = new Button("Button 8");
         Button button9 = new Button("Button 9");
+        Button button10 = new Button("X: Player 1");
+        Button button11 = new Button("O: Player 2");
+
 
 
         myGridPane.add(button1, 0, 0, 1, 1);
@@ -51,6 +54,8 @@ GridPane myGridPane =new GridPane();
         myGridPane.add(button7, 0, 2, 1, 1);
         myGridPane.add(button8, 1, 2, 1, 1);
         myGridPane.add(button9, 2, 2, 1, 1);
+        myGridPane.add(button10,3,0,2,2);
+        myGridPane.add(button11,3,1,2,2);
 
     }
 
