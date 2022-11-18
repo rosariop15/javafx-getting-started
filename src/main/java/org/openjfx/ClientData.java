@@ -1,12 +1,13 @@
 package org.openjfx;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-public class MyHeader extends VBox {
-    public MyHeader() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("my_header.fxml"));
+public class ClientData extends VBox {
+    public ClientData() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("client_data.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {
@@ -16,4 +17,5 @@ public class MyHeader extends VBox {
         }
 
     }
+
 }
