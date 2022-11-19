@@ -1,0 +1,7 @@
+org\openjfx\PrimaryController.class
+org\openjfx\MyServer.class
+org\openjfx\MyClient.class
+org\openjfx\MyChart.class
+org\openjfx\MyHeader.class
+org\openjfx\SecondaryController.class
+org\openjfx\App.class
