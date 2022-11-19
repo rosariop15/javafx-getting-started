@@ -6,11 +6,11 @@ import java.io.DataInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ChartUpdater extends Thread {
-    private MyChart myChart;
+public class GridUpdater extends Thread {
+    private MyGrid myGrid;
 
-    public ChartUpdater(MyChart myChart) {
-        this.myChart = myChart;
+    public GridUpdater(MyGrid myGrid) {
+        this.myGrid = myGrid;
     }
 
     @Override
@@ -24,7 +24,7 @@ public class ChartUpdater extends Thread {
             Thread updater = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    myChart.add(Double.valueOf(str));
+                    //myGrid.updateButtons;
                 }
             });
             Platform.runLater(updater);
