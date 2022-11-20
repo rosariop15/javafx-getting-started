@@ -136,9 +136,12 @@ public class MyGrid implements Initializable {
     public void setPlayerSymbol(Button button) {
         if (playerTurn % 2 == 0) {
             button.setText("X");
+            button.setStyle("-fx-text-fill: red; -fx-font-size: 2em; ");
+
             playerTurn = 1;
         } else {
             button.setText("O");
+            button.setStyle("-fx-font-size: 2em; ");
             playerTurn = 0;
         }
     }
@@ -151,6 +154,8 @@ public class MyGrid implements Initializable {
         checkSuccess("X", button1, button4, button7);
         checkSuccess("X", button2, button5, button8);
         checkSuccess("X", button3, button6, button9);
+        checkSuccess("X", button1, button5, button9);
+        checkSuccess("X", button3, button5, button7);
         checkSuccess("O", button1, button2, button3);
         checkSuccess("O", button4, button5, button6);
         checkSuccess("O", button7, button8, button9);
@@ -158,6 +163,8 @@ public class MyGrid implements Initializable {
         checkSuccess("O", button1, button4, button7);
         checkSuccess("O", button2, button5, button8);
         checkSuccess("O", button3, button6, button9);
+        checkSuccess("O", button1, button5, button9);
+        checkSuccess("O", button3, button5, button7);
     }
 
     private void checkSuccess(String PlayerSymbol, Button b1, Button b2, Button b3) {
