@@ -112,27 +112,6 @@ public class MyGrid implements Initializable {
         });
     }*/
 
-
-    /**@FXML
-    public void updateButton() throws IOException {
-        button1.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.print(button1.getText());
-                try {
-                    Socket s = new Socket(ipAddress.getText(), 6666);
-                    DataOutputStream dout = new DataOutputStream(s.getOutputStream());
-                    dout.writeUTF("DATA CONTENUE DANS BTN Y");
-                    dout.flush();
-                    dout.close();
-                    s.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }**/
-
     public void setPlayerSymbol(Button button) {
         if (playerTurn % 2 == 0) {
             button.setText("X");
@@ -177,6 +156,7 @@ public class MyGrid implements Initializable {
     @FXML
     void resetGame(ActionEvent event) {
         buttons.forEach(this::resetButton);
+        ipAddress.setText(" ");
         winnerText.setText("Tic-Tac-Toe");
     }
 
@@ -190,6 +170,26 @@ public class MyGrid implements Initializable {
             setPlayerSymbol(button);
             button.setDisable(true);
             checkIfGameIsOver();
+        });
+    }
+
+    public void sendIP(ActionEvent actionEvent) {
+        btnIP.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println(ipAddress.getText());
+                //String IPaddress = ipAddress.getText();
+                try {
+                    Socket s = new Socket(ipAddress.getText(), 6666);
+                    DataOutputStream dout = new DataOutputStream(s.getOutputStream());
+                    dout.writeUTF(ipAddress.getText());
+                    dout.flush();
+                    dout.close();
+                    s.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         });
     }
 

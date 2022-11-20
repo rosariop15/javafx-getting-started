@@ -26,7 +26,7 @@
     <children>
         <Label text="Tictactoe"/>
         <TextField fx:id="ipAddress"/>
-        <Button fx:id="btnIP" text="Send the opponent's IP address"/>
+        <Button fx:id="btnIP" onAction="#sendIP" text="Send the opponent's IP address"/>
         <Button fx:id="btnReset" layoutX="274.0" layoutY="361.0" onAction="#resetGame" text="New Game"/>
         <Text fx:id="winnerText" layoutX="182.0" layoutY="72.0" text="Let's Play !" textAlignment="CENTER" >
             <font>
