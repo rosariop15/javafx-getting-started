@@ -8,6 +8,7 @@
 <?import javafx.geometry.Insets?>
 
 <?import javafx.scene.text.Font?>
+<?import org.openjfx.MyGame?>
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="org.openjfx.MyGrid">
     <GridPane fx:id="myGridPane" />
@@ -26,14 +27,13 @@
     <children>
         <Label text="Tictactoe"/>
         <TextField fx:id="ipAddress"/>
-        <Button fx:id="btnIP" text="Send the opponent's IP address"/>
+        <Button fx:id="btnIP" onAction="#sendIP" text="Send the opponent's IP address"/>
         <Button fx:id="btnReset" layoutX="274.0" layoutY="361.0" onAction="#resetGame" text="New Game"/>
         <Text fx:id="winnerText" layoutX="182.0" layoutY="72.0" text="Let's Play !" textAlignment="CENTER" >
             <font>
                 <Font size="20" />
             </font>
         </Text>
-
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>

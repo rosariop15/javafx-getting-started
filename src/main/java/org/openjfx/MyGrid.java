@@ -25,15 +25,16 @@ public class MyGrid implements Initializable {
     @FXML
     GridPane myGridPane = new GridPane();
 
+    /*@FXML
+    MyGrid myGrid = new MyGrid();*/
+
     @FXML
     TextField ipAddress = new TextField();
 
     @FXML
     Button btnReset = new Button();
-
     @FXML
     Button btnIP = new Button();
-
     @FXML
     Button button1 = new Button();
     @FXML
@@ -63,8 +64,15 @@ public class MyGrid implements Initializable {
 
     ArrayList<Button> buttons;
 
+    /*@FXML
+    private void initialize() {
+        GridUpdater server = new GridUpdater(myGrid);
+        server.setDaemon(true);
+        server.start();
+    }*/
+
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         myGridPane.add(button1, 0, 0, 1, 1);
         myGridPane.add(button2, 1, 0, 1, 1);
         myGridPane.add(button3, 2, 0, 1, 1);
@@ -112,33 +120,15 @@ public class MyGrid implements Initializable {
         });
     }*/
 
-
-    /**@FXML
-    public void updateButton() throws IOException {
-        button1.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.print(button1.getText());
-                try {
-                    Socket s = new Socket(ipAddress.getText(), 6666);
-                    DataOutputStream dout = new DataOutputStream(s.getOutputStream());
-                    dout.writeUTF("DATA CONTENUE DANS BTN Y");
-                    dout.flush();
-                    dout.close();
-                    s.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }**/
-
     public void setPlayerSymbol(Button button) {
         if (playerTurn % 2 == 0) {
             button.setText("X");
+            button.setStyle("-fx-text-fill: red; -fx-font-size: 2em; ");
+
             playerTurn = 1;
         } else {
             button.setText("O");
+            button.setStyle("-fx-font-size: 2em; ");
             playerTurn = 0;
         }
     }
@@ -151,6 +141,8 @@ public class MyGrid implements Initializable {
         checkSuccess("X", button1, button4, button7);
         checkSuccess("X", button2, button5, button8);
         checkSuccess("X", button3, button6, button9);
+        checkSuccess("X", button1, button5, button9);
+        checkSuccess("X", button3, button5, button7);
         checkSuccess("O", button1, button2, button3);
         checkSuccess("O", button4, button5, button6);
         checkSuccess("O", button7, button8, button9);
@@ -158,6 +150,8 @@ public class MyGrid implements Initializable {
         checkSuccess("O", button1, button4, button7);
         checkSuccess("O", button2, button5, button8);
         checkSuccess("O", button3, button6, button9);
+        checkSuccess("O", button1, button5, button9);
+        checkSuccess("O", button3, button5, button7);
     }
 
     private void checkSuccess(String PlayerSymbol, Button b1, Button b2, Button b3) {
@@ -170,7 +164,8 @@ public class MyGrid implements Initializable {
     @FXML
     void resetGame(ActionEvent event) {
         buttons.forEach(this::resetButton);
-        winnerText.setText("Tic-Tac-Toe");
+        ipAddress.setText(" ");
+        winnerText.setText("Let's play !");
     }
 
     public void resetButton(Button button) {
@@ -186,9 +181,29 @@ public class MyGrid implements Initializable {
         });
     }
 
+    public void sendIP(ActionEvent actionEvent) {
+        btnIP.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println(ipAddress.getText());
+                //String IPaddress = ipAddress.getText();
+                try {
+                    Socket s = new Socket(ipAddress.getText(), 6666);
+                    DataOutputStream dout = new DataOutputStream(s.getOutputStream());
+                    dout.writeUTF(ipAddress.getText());
+                    dout.flush();
+                    dout.close();
+                    s.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
     /**public void add(String) {
-        buttons.getText().add((value));
-    }**/
+     buttons.getText().add((value));
+     }**/
 }
 
 
