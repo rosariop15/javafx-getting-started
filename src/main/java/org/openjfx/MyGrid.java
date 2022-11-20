@@ -25,15 +25,16 @@ public class MyGrid implements Initializable {
     @FXML
     GridPane myGridPane = new GridPane();
 
+    /*@FXML
+    MyGrid myGrid = new MyGrid();*/
+
     @FXML
     TextField ipAddress = new TextField();
 
     @FXML
     Button btnReset = new Button();
-
     @FXML
     Button btnIP = new Button();
-
     @FXML
     Button button1 = new Button();
     @FXML
@@ -63,8 +64,15 @@ public class MyGrid implements Initializable {
 
     ArrayList<Button> buttons;
 
+    /*@FXML
+    private void initialize() {
+        GridUpdater server = new GridUpdater(myGrid);
+        server.setDaemon(true);
+        server.start();
+    }*/
+
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         myGridPane.add(button1, 0, 0, 1, 1);
         myGridPane.add(button2, 1, 0, 1, 1);
         myGridPane.add(button3, 2, 0, 1, 1);
@@ -157,7 +165,7 @@ public class MyGrid implements Initializable {
     void resetGame(ActionEvent event) {
         buttons.forEach(this::resetButton);
         ipAddress.setText(" ");
-        winnerText.setText("Tic-Tac-Toe");
+        winnerText.setText("Let's play !");
     }
 
     public void resetButton(Button button) {
@@ -194,8 +202,8 @@ public class MyGrid implements Initializable {
     }
 
     /**public void add(String) {
-        buttons.getText().add((value));
-    }**/
+     buttons.getText().add((value));
+     }**/
 }
 
 
